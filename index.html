@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISE Department information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student's information form</h2>
+        <form id="myForm">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Usn number</th> 
+                        <th>Mobile Number</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="name[]" class="input-field"></td>
+                        <td><input type="text" name="Usn number[]" class="input-field"></td>
+                        <td><input type="text" name="Mobile Number[]" class="input-field"></td>
+                        <td><input type="text" name="Address[]" class="input-field"></td>
+                        
+                        <td><input type="email" name="email[]" class="input-field"></td>
+                        <td><button type="button" onclick="addRow()">+</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <button type="button" onclick="removeRow()">Remove</button> -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function addRow() {
+            var table = document.getElementById("dataTable");
+            var newRow = table.insertRow();
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            var cell6 = newRow.insertCell(5);
+            cell1.innerHTML = "<input type='text' name='name[]' class='input-field'>";
+            cell2.innerHTML = "<input type='text' name='Usn number[]' class='input-field'>";
+            cell3.innerHTML = "<input type='text' name='Mobile Number[]' class='input-field'>";
+            cell4.innerHTML = "<input type='text' name='Address[]' class='input-field'>";
+            cell5.innerHTML = "<input type='email' name='email[]' class='input-field'>";
+            cell6.innerHTML = "<button type='Remove' onclick='removeRow()'>+</button>";
+        }
+
+        function removeRow() {
+            var table = document.getElementById("dataTable");
+            if (table.rows.length > 1) {
+                table.deleteRow(-1); // Deletes the last row
+            } else {
+                alert("Cannot delete all rows!");
+            }
+        }
+    </script>
+</body>
+</html>
